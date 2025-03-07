@@ -1,0 +1,68 @@
+{
+  "name": "liyao-vue-common",
+  "version": "0.0.4",
+  "private": false,
+  "type": "module",
+  "description": "A upload component for Vue3 and element-plus",
+  "keywords": [
+    "Vue3",
+    "element-plus",
+    "component",
+    "upload"
+  ],
+  "main": "dist/index.umd.js",
+  "module": "dist/index.es.js",
+  "types": "dist/index.d.ts",
+  "style": "dist/liyao-vue-common.css",
+  "files": ["dist"],
+  "exports": {
+    ".": {
+      "import": "./dist/index.es.js",
+      "require": "./dist/index.umd.js"
+    }
+
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/liyao52033/liyao-vue-common.git"
+  },
+  "bugs": {
+    "url": "https://github.com/liyao52033/liyao-vue-common/issues"
+  },
+  "homepage": "https://github.com/liyao52033/liyao-vue-common",
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org"
+  },
+  "scripts": {
+    "dev": "vite",
+    "build": "vue-tsc --declaration --emitDeclarationOnly && vite build",
+    "preview": "vite preview"
+  },
+  "config": {
+    "commitizen": {
+      "path": "node_modules/cz-git"
+    }
+  },
+  "dependencies": {
+    "@element-plus/icons-vue": "^2.3.1",
+    "@vueuse/core": "^12.8.2",
+    "element-plus": "^2.9.5",
+    "path-browserify": "^1.0.1",
+    "path-to-regexp": "^8.2.0",
+    "vue": "^3.5.13"
+  },
+  "devDependencies": {
+    "@types/node": "^22.13.9",
+    "@types/path-browserify": "^1.0.3",
+    "@vitejs/plugin-vue": "^5.2.1",
+    "@vue/tsconfig": "^0.7.0",
+    "cz-git": "^1.11.1",
+    "typescript": "~5.7.2",
+    "unplugin-auto-import": "^19.1.1",
+    "unplugin-icons": "^22.1.0",
+    "unplugin-vue-components": "^28.4.1",
+    "vite": "^6.2.0",
+    "vue-tsc": "^2.2.4"
+  },
+  "license": "MIT"
+}
