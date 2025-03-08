@@ -9,26 +9,32 @@
         :show-file-list="false"
         action="#"
         class="ml-3"
+        drag
     >
-
-        <template #trigger>
+      <template #trigger>
+        <slot name="trigger">
           <el-button type="primary">
             <slot>导入</slot>
           </el-button>
-        </template>
-
+        </slot>
+      </template>
     </el-upload>
   </div>
 </template>
 
 <script lang="ts" setup>
+
+defineOptions({
+  name: 'UploadLocal',
+});
+
 import { UploadRawFile, UploadRequestOptions } from "element-plus";
 
 const props = defineProps({
   /**
    * 导入文件接口
    */
-  import: {
+  importFile: {
     type: Function,
     required: true,
   },
@@ -61,7 +67,7 @@ function beforeUpload(file: UploadRawFile) {
   const allowed = props.allowedExtensions; // 允许的文件类型
   const fileExtension = file.name.split(".").pop()?.toLowerCase();
 
-  if (!fileExtension || !allowed.includes(`.${fileExtension}`)) {
+  if (!fileExtension || !allowed.includes(`.${ fileExtension }`)) {
     ElMessage.error("只能上传xlsx, xls ,csv格式的excel文件");
     return false;
   }
@@ -77,8 +83,8 @@ function beforeUpload(file: UploadRawFile) {
 
 async function handleUpload(options: UploadRequestOptions): Promise<any> {
   const files = options.file;
-  props.import(files);
+  props.importFile(files);
 }
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss"></style>

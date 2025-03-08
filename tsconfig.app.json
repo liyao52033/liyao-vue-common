@@ -12,7 +12,7 @@
     "declaration": true, // 生成 .d.ts
     "declarationMap": true, // 可选，生成 .d.ts.map 方便调试
     "emitDeclarationOnly": true, // 只生成 .d.ts，不编译 JS
-    "outDir": "dist", // 生成的 .d.ts 存放目录
+    "declarationDir": "dist/types",
     "target": "esnext",
     "useDefineForClassFields": true,
     "module": "esnext",

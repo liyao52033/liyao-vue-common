@@ -1,15 +1,12 @@
 <script setup lang="ts">
-
+function  uploadFileApi(file: File) {
+  console.log(file)
+}
 </script>
 
 <template>
   <div>
-    <a href="https://vite.dev" target="_blank">
-      <img src="/vite.svg" class="logo" alt="Vite logo" />
-    </a>
-    <a href="https://vuejs.org/" target="_blank">
-      <img src="./assets/vue.svg" class="logo vue" alt="Vue logo" />
-    </a>
+    <upload-cos :upload-file-api="uploadFileApi"></upload-cos>
   </div>
 </template>
 

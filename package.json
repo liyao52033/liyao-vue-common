@@ -1,6 +1,6 @@
 {
   "name": "liyao-vue-common",
-  "version": "0.0.4",
+  "version": "1.0.0",
   "private": false,
   "type": "module",
   "description": "A upload component for Vue3 and element-plus",
@@ -12,15 +12,19 @@
   ],
   "main": "dist/index.umd.js",
   "module": "dist/index.es.js",
-  "types": "dist/index.d.ts",
-  "style": "dist/liyao-vue-common.css",
-  "files": ["dist"],
+  "types": "types/index.d.ts",
+  "style": "dist/style.css",
+  "files": [
+    "dist",
+    "types"
+  ],
   "exports": {
     ".": {
+      "types": "./types/index.d.ts",
       "import": "./dist/index.es.js",
       "require": "./dist/index.umd.js"
-    }
-
+    },
+    "./dist/style.css": "./dist/style.css"
   },
   "repository": {
     "type": "git",
@@ -36,7 +40,8 @@
   "scripts": {
     "dev": "vite",
     "build": "vue-tsc --declaration --emitDeclarationOnly && vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "pub": "pnpm build && pnpm publish --access public --no-git-checks"
   },
   "config": {
     "commitizen": {
@@ -63,6 +68,9 @@
     "unplugin-vue-components": "^28.4.1",
     "vite": "^6.2.0",
     "vue-tsc": "^2.2.4"
+  },
+  "peerDependencies": {
+    "element-plus": "^2.9.6"
   },
   "license": "MIT"
 }
