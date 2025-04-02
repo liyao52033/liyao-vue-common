@@ -7,8 +7,7 @@ import path from "path";
 import Icons from 'unplugin-icons/vite'
 import IconsResolver from 'unplugin-icons/resolver'
 
-
-//  const pathSrc = path.resolve(__dirname, 'src')
+// const pathSrc = path.resolve(__dirname, 'src')
 
 // https://vite.dev/config/
 export default defineConfig({
@@ -16,6 +15,18 @@ export default defineConfig({
         alias: {
             "@": path.resolve("./src")
         },
+    },
+    server: {
+        host: '0.0.0.0',
+        port: 8080,
+        cors: true,
+        proxy: {
+            '/api': {
+                target: 'http://localhost:8080',
+                changeOrigin: true,
+                rewrite: (path) => path.replace(/^\/api/, '')
+            }
+        }
     },
     plugins: [
         vue(),
@@ -37,7 +48,7 @@ export default defineConfig({
             ],
             vueTemplate: true,
             dts: false
-            //  dts: path.resolve(pathSrc, 'auto-imports.d.ts'),
+          //    dts: path.resolve(pathSrc, 'auto-imports.d.ts'),
         }),
 
         Components({
@@ -53,7 +64,7 @@ export default defineConfig({
             ],
 
             dts: false
-            // dts: path.resolve(pathSrc, 'components.d.ts'),
+           //  dts: path.resolve(pathSrc, 'components.d.ts'),
         }),
 
         Icons({
@@ -62,28 +73,33 @@ export default defineConfig({
     ],
     build: {
         lib: {
-            entry: path.resolve(__dirname, 'src/components/base/index.ts'),
+            entry: path.resolve(__dirname, 'src/index.ts'),
             name: 'liyaoComponents',
             fileName: (format) => { return `index.${format}.js` }
         },
-        cssCodeSplit: false,
+        cssCodeSplit: true,
         rollupOptions: {
-            external: ['vue', 'element-plus'],
+            external: ['vue', 'vite', 'element-plus'],
             output: {
                 exports: 'named',
                 globals: {
                     vue: 'Vue'
                 },
                 assetFileNames: (assetInfo) => {
-                    if (assetInfo.name && assetInfo.name.endsWith('.css')) {
-                        return 'style.css';
+                    if (assetInfo.names?.[0]?.endsWith('.css')) {
+                        return 'style.css'
                     }
-                    return 'assets/[name]-[hash][extname]';
+                    return 'assets/[name]-[hash][extname]'
                 }
             }
         }
     },
     optimizeDeps: {
-        include: ['vue', "element-plus", "path-to-regexp", "@vueuse/core",],
+        include: [
+            'vue',
+            "element-plus",
+            "path-to-regexp",
+            "@vueuse/core"
+        ],
     },
 })

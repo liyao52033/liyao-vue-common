@@ -1,6 +1,6 @@
 {
   "name": "liyao-vue-common",
-  "version": "1.0.0",
+  "version": "1.0.6",
   "private": false,
   "type": "module",
   "description": "A upload component for Vue3 and element-plus",
@@ -51,17 +51,25 @@
   "dependencies": {
     "@element-plus/icons-vue": "^2.3.1",
     "@vueuse/core": "^12.8.2",
+    "@wangeditor/editor-for-vue": "^5.1.12",
+    "echarts": "^5.6.0",
     "element-plus": "^2.9.5",
+    "lodash-es": "^4.17.21",
+    "monaco-editor": "^0.52.2",
     "path-browserify": "^1.0.1",
     "path-to-regexp": "^8.2.0",
+    "resize-observer-polyfill": "^1.5.1",
     "vue": "^3.5.13"
   },
   "devDependencies": {
+    "@types/lodash-es": "^4.17.12",
     "@types/node": "^22.13.9",
     "@types/path-browserify": "^1.0.3",
     "@vitejs/plugin-vue": "^5.2.1",
     "@vue/tsconfig": "^0.7.0",
+    "@wangeditor/editor": "^5.1.23",
     "cz-git": "^1.11.1",
+    "sass-embedded": "^1.86.0",
     "typescript": "~5.7.2",
     "unplugin-auto-import": "^19.1.1",
     "unplugin-icons": "^22.1.0",
@@ -70,7 +78,8 @@
     "vue-tsc": "^2.2.4"
   },
   "peerDependencies": {
-    "element-plus": "^2.9.6"
+    "element-plus": "^2.9.6",
+    "vite": "^6.2.0"
   },
   "license": "MIT"
 }

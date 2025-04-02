@@ -274,7 +274,7 @@ const handleFileUpload = async (file) => {
 ### 添加新组件
 
 1. 在 `src/components` 目录下创建新组件
-2. 在 `src/components/base/index.ts` 文件中添加组件:
+2. 在 `src/index.ts` 文件中添加组件:
 
 ```js
 // 导入新组件
